@@ -1,0 +1,43 @@
+<script>
+
+    var nombres =["jorman","aldrich","emiliano","gerardo","alberto","luis","david"];
+    var apellidos= ["deGante","Lopez","jimenez","Gonzalez","Cadena","Casillas"];
+    var letras = ["a","b","c","d","f"];
+    
+    for(var i=0;i< 1000;i++){
+    let humano=persona();
+    console.log(humano);
+    }
+    function persona(){
+        let nombre=nombres[numeroAleatorio(0,nombres.length-1)];
+        let apellido=apellidos[numeroAleatorio(0,apellidos.length-1)];
+        let edad=numeroAleatorio(1,21);
+        if(numeroAleatorio(0,1)==0){
+            var sexo="hombre";
+        }
+        else{
+            var sexo="mujer";
+        }
+        let codigo=generadorCodigo(6);
+        let persona={
+            nombre:nombre,
+            apellido:apellido,
+            edad:edad,
+            sexo:sexo,
+            codigo:codigo,
+        }
+        return persona;
+    }
+    function numeroAleatorio(min,max){
+        return Math.round(Math.random()*(max-min)+min);
+    
+    }
+    function generadorCodigo(n){
+        let cadena="";
+        for(var i=0;i<n;i++){
+            cadena=cadena+letras[numeroAleatorio(0,letras.length-1)];
+        }
+        return cadena;
+    }
+    </script>
+    
